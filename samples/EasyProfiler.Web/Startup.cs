@@ -44,6 +44,11 @@ namespace EasyProfiler.Web
                 .AddEasyProfiler(services);
             });
 
+            services.AddDbContext<SampleDbContext>(options =>
+            {
+                options.UseOracle(Configuration.GetConnectionString("DefaultConnection"));
+            });
+
             services.AddEasyProfilerDbContext(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
