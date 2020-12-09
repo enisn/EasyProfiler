@@ -8,4 +8,8 @@
     <ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Devart.Data.Oracle.EFCore" Version="9.14.1150" />
+	</ItemGroup>
+
 </Project>
