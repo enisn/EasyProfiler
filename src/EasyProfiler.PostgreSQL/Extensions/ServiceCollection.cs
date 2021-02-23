@@ -1,11 +1,9 @@
-﻿using EasyProfiler.Core.Abstractions;
-using EasyProfiler.Core.Concrete;
+﻿using EasyProfiler.EntityFrameworkCore.Abstractions;
+using EasyProfiler.EntityFrameworkCore.Concrete;
 using EasyProfiler.PostgreSQL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EasyProfiler.PostgreSQL.Extensions
 {

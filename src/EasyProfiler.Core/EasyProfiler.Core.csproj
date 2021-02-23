@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>furkandeveloper</Authors>
     <Description>This repo, provides query profiler for EF Core.</Description>
     <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
@@ -15,9 +15,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="AutoFilterer" Version="2.1.7" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
-		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>

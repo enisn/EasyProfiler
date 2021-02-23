@@ -1,9 +1,9 @@
-﻿using System;
-using EasyProfiler.Core.Abstractions;
-using EasyProfiler.Core.Concrete;
+﻿using EasyProfiler.EntityFrameworkCore.Abstractions;
+using EasyProfiler.EntityFrameworkCore.Concrete;
 using EasyProfiler.MariaDb.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace EasyProfiler.MariaDb.Extensions
 {

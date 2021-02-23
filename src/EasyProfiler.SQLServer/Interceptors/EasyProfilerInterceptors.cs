@@ -1,14 +1,10 @@
-﻿using EasyProfiler.Core.Abstractions;
-using EasyProfiler.Core.Entities;
+﻿using EasyProfiler.Core.Entities;
 using EasyProfiler.Core.Helpers.Extensions;
+using EasyProfiler.EntityFrameworkCore.Abstractions;
 using EasyProfiler.SQLServer.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using System;
-using System.Collections.Generic;
 using System.Data.Common;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace EasyProfiler.SQLServer.Interceptors

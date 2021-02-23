@@ -1,26 +1,26 @@
 ﻿using EasyProfiler.Core.Entities;
-using EasyProfiler.EntityFrameworkCore.Context;
 using EasyProfiler.EntityFrameworkCore.Helpers;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EasyProfiler.PostgreSQL.Context
+namespace EasyProfiler.EntityFrameworkCore.Context
 {
-    /// <summary>
-    /// Profiler DbContext for PostgreSQL
-    /// </summary>
-    public class ProfilerDbContext : ProfilerCoreDbContext
+    public abstract class ProfilerCoreDbContext : DbContext
     {
-        public ProfilerDbContext(DbContextOptions<ProfilerDbContext> options) : base(options)
+        public ProfilerCoreDbContext(DbContextOptions options) : base(options)
         {
         }
 
-        #region Tables
         public virtual DbSet<Profiler> Profilers { get; set; }
-        #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Profiler>(entity =>
             {
                 entity
@@ -30,9 +30,9 @@ namespace EasyProfiler.PostgreSQL.Context
                     .HasIndex(i => i.Duration);
 
                 entity
-                   .Property(p => p.Id)
-                   .HasValueGenerator<GuidGenerator>()
-                   .ValueGeneratedOnAdd();
+                    .Property(p => p.Id)
+                    .HasValueGenerator<GuidGenerator>()
+                    .ValueGeneratedOnAdd();
 
                 entity
                     .Property(p => p.Query)
@@ -43,11 +43,7 @@ namespace EasyProfiler.PostgreSQL.Context
                     .IsRequired()
                     .HasConversion(new EnumToStringConverter<QueryType>());
 
-                entity
-                    .Property(p => p.Duration)
-                    .HasColumnType("bigint");
             });
-            base.OnModelCreating(modelBuilder);
         }
     }
 }

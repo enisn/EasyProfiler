@@ -16,5 +16,7 @@ namespace EasyProfiler.Core.Entities
         public string RequestUrl { get; set; } = "/";
 
         public QueryType QueryType { get; set; }
+
+        public bool IsRead { get; set; }
     }
 }

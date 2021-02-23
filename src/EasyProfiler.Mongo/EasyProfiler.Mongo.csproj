@@ -23,14 +23,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <None Include="easyProfilerMongo.png">
 	    <Pack>True</Pack>
 	    <PackagePath></PackagePath>
 	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\EasyProfiler.EntityFrameworkCore\EasyProfiler.EntityFrameworkCore.csproj" />
 	</ItemGroup>
 
 </Project>

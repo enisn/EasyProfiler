@@ -1,10 +1,8 @@
-﻿using System.Linq;
-using EasyProfiler.Core.Abstractions;
+﻿using EasyProfiler.EntityFrameworkCore.Abstractions;
 using EasyProfiler.MariaDb.Context;
 using EasyProfiler.MariaDb.Interceptors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyProfiler.MariaDb.Extensions
@@ -26,7 +24,11 @@ namespace EasyProfiler.MariaDb.Extensions
         public static DbContextOptionsBuilder AddEasyProfiler(this DbContextOptionsBuilder optionsBuilder, IServiceCollection services)
         {
             var buildServices = services.BuildServiceProvider();
-            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(buildServices.GetService<IEasyProfilerBaseService<ProfilerDbContext>>(), buildServices.GetService<IHttpContextAccessor>()));
+            optionsBuilder
+                .AddInterceptors(
+                new EasyProfilerInterceptors(
+                    buildServices.GetService<IEasyProfilerBaseService<ProfilerDbContext>>(),
+                    buildServices.GetService<IHttpContextAccessor>()));
             return optionsBuilder;
         }
     }

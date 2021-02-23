@@ -1,11 +1,9 @@
-﻿using EasyProfiler.PostgreSQL.Context;
+﻿using EasyProfiler.EntityFrameworkCore.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace EasyProfiler.PostgreSQL.Extensions
+namespace EasyProfiler.MariaDb.Extensions
 {
     /// <summary>
     /// This class includes Application Builder extensions for database migrations.
@@ -22,9 +20,11 @@ namespace EasyProfiler.PostgreSQL.Extensions
         /// <param name="dbContext">
         /// Profiler DbContext
         /// </param>
-        public static void ApplyEasyProfilerPostgreSQL(this IApplicationBuilder app, ProfilerDbContext dbContext)
+        public static void ApplyEasyProfiler(this IApplicationBuilder app)
         {
-            dbContext.Database.Migrate();
+            // TODO: Test if it's working
+            foreach (var dbContext in app.ApplicationServices.CreateScope().ServiceProvider.GetServices<ProfilerCoreDbContext>())
+                dbContext.Database.Migrate();
         }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System.Data.Common;
 using System.Threading.Tasks;
-using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Entities;
 using EasyProfiler.Core.Helpers.Extensions;
+using EasyProfiler.EntityFrameworkCore.Abstractions;
 using EasyProfiler.MariaDb.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Diagnostics;

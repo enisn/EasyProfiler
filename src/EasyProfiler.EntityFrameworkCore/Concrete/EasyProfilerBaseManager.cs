@@ -1,19 +1,18 @@
 ﻿using AutoFilterer.Extensions;
-using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Entities;
 using EasyProfiler.Core.Helpers.AdvancedQuery;
 using EasyProfiler.Core.Helpers.Responses;
+using EasyProfiler.EntityFrameworkCore.Abstractions;
+using EasyProfiler.EntityFrameworkCore.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyProfiler.Core.Concrete
+namespace EasyProfiler.EntityFrameworkCore.Concrete
 {
-    public class EasyProfilerBaseManager<TDbContext> : IEasyProfilerBaseService<TDbContext> where TDbContext : DbContext
+    public class EasyProfilerBaseManager<TDbContext> : IEasyProfilerBaseService<TDbContext> where TDbContext : ProfilerCoreDbContext
     {
         private readonly TDbContext dbContext;
 
